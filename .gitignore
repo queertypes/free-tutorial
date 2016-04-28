@@ -1,4 +1,10 @@
-*.pdf
-cabal.sandbox.config
+# haskell
+.stack-work
 .cabal-sandbox
 dist
+cabal.sandbox.config
+stack.yaml
+
+# emacs
+TAGS
+tags
