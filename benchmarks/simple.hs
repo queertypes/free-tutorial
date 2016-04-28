@@ -1,15 +1,12 @@
 module Main where
 
 import Criterion.Main
+import Control.Monad.Free.Church (improve)
 
-import Data.Interpreter.Actions
-import Data.Interpreter.Types
-import Data.Interpreter
+import Control.Teletype
 
 main :: IO ()
 main = defaultMain
-  [ bench "echo_engine" $ nf (runPure echo) ["cat", "dog"]
+  [ bench "echo" $ nf (runPure echo) ["cat", "dog"]
+  , bench "echo-improve" $ nf (runPure (improve echo)) ["cat", "dog"]
   ]
-
-echo :: Teletype ()
-echo = getLine' >>= putStrLn' >> exitSuccess' >> putStrLn' "Finished"
