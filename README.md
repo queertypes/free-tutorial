@@ -23,3 +23,9 @@ $ stack ghci
 ```
 $ stack test
 ```
+
+## Benchmarks
+
+```
+$ stack bench
+```
